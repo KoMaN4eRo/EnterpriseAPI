@@ -32,8 +32,16 @@ namespace EnterpriseAPI.Controllers
         [HttpPost]
         public async Task<JsonResult> Create(string name, string familyId)
         {
-            await offering.Create(eventHandler, db, name, int.Parse(familyId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await offering.Create(eventHandler, db, name, int.Parse(familyId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpGet]
@@ -51,15 +59,31 @@ namespace EnterpriseAPI.Controllers
         [HttpPut]
         public async Task<JsonResult> Put(string familyId, string id, string name = null)
         {
-            await offering.Update(eventHandler, db, int.Parse(familyId), int.Parse(id), name);
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await offering.Update(eventHandler, db, int.Parse(familyId), int.Parse(id), name);
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name, string familyId)
         {
-            await offering.Delete(eventHandler, db, name, int.Parse(familyId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await offering.Delete(eventHandler, db, name, int.Parse(familyId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
     }
 }

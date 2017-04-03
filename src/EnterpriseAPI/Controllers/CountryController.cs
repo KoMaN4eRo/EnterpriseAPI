@@ -32,8 +32,16 @@ namespace EnterpriseAPI.Controllers
         [HttpPost]
         public async Task<JsonResult> Create(string name, string countryCode, string orgId)
         {
-            await country.Create(eventHandler, db, name, int.Parse(countryCode), int.Parse(orgId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await country.Create(eventHandler, db, name, int.Parse(countryCode), int.Parse(orgId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpGet]
@@ -53,15 +61,31 @@ namespace EnterpriseAPI.Controllers
         [HttpPut]
         public async Task<JsonResult> Put(string orgId, string id, string name = null, string code = null)
         {
-            await country.Update(eventHandler, db, int.Parse(orgId),int.Parse(id), name, int.Parse(code));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await country.Update(eventHandler, db, int.Parse(orgId), int.Parse(id), name, int.Parse(code));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name, string orgId)
         {
-            await country.Delete(eventHandler, db, name, int.Parse(orgId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await country.Delete(eventHandler, db, name, int.Parse(orgId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
     }
 }

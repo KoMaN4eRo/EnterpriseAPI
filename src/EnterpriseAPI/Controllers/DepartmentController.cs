@@ -13,7 +13,6 @@ namespace EnterpriseAPI.Controllers
     [Route("api/[controller]/[action]")]
     public class DepartmentController : Controller
     {
-
         private IDepartment department;
         private ApplicationContext db;
         private string mess;
@@ -32,8 +31,16 @@ namespace EnterpriseAPI.Controllers
         [HttpPost]
         public async Task<JsonResult> Create(string name, string offeringId)
         {
-            await department.Create(eventHandler, db, name, int.Parse(offeringId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await department.Create(eventHandler, db, name, int.Parse(offeringId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpGet]
@@ -45,15 +52,31 @@ namespace EnterpriseAPI.Controllers
         [HttpPut]
         public async Task<JsonResult> Put(string offeringId, string id, string name = null)
         {
-            await department.Update(eventHandler, db, int.Parse(offeringId), int.Parse(id), name);
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await department.Update(eventHandler, db, int.Parse(offeringId), int.Parse(id), name);
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name, string offeringId)
         {
-            await department.Delete(eventHandler, db, name, int.Parse(offeringId));
-            return Json(mess);
+            string controlll = User.Identity.Name;
+            if (controlll != null)
+            {
+                await department.Delete(eventHandler, db, name, int.Parse(offeringId));
+                return Json(mess);
+            }
+            else
+            {
+                return Json("Error. Please Authenticate via social network");
+            }
         }
     }
 }

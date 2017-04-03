@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using EnterpriseAPI.Models.UserModel;
 
 namespace EnterpriseAPI.Models
 {
@@ -23,6 +24,7 @@ namespace EnterpriseAPI.Models
         public DbSet<Family> family { get; set; }
         public DbSet<Offering> offering { get; set; }
         public DbSet<Department> department { get; set; }
+        public DbSet<User> user { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)

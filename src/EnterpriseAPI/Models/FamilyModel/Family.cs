@@ -17,7 +17,7 @@ namespace EnterpriseAPI.Models.FamilyModel
         [Required]
         public int businessId { get; set; }
         public List<Offering> offering { get; set; }
-
+        
         protected internal event FamilyHandler createFamily;
         protected internal event FamilyHandler updateFamily;
         protected internal event FamilyHandler deleteFamily;
