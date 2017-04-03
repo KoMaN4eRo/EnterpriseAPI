@@ -1,11 +1,7 @@
 FORMAT: 1A
 HOST: http://localhost:3128/
 
-# Polls API
-
-#User profile managing
-
-Polls is a simple API allowing consumers to view polls and vote in them.
+# Enterprise API
 
 ## Sign in via LinkedIn [/login]
 ### Login [GET]
