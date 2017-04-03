@@ -973,11 +973,11 @@ This method available only after sign in
         [
           "Error. Please Authenticate via social network"
         ]        
-## Delete country [/api/Department/Delete/?{name}&{familyId}]
+## Delete Department [/api/Department/Delete/?{name}&{familyId}]
     + Parameters
         + name (string)- the name of business
         + familyId (string) - countryId id
-### Delete country INFO [Delete]
+### Delete Department INFO [Delete]
 + Response 200 (application/json)
 
         [
