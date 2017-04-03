@@ -1,7 +1,8 @@
 FORMAT: 1A
 HOST: http://localhost:3128/
 
-# Enterprise API
+# EnterpriseAPI description
+
 
 ## Sign in via LinkedIn [/login]
 ### Login [GET]
@@ -43,7 +44,6 @@ This method available only after sign in
         }
 
 ## Get user [/api/Account/Get/]
-Use this method only after sign in
 
 ### Get user profile [GET]
 
@@ -104,7 +104,6 @@ This method available only after sign in.
         ]
 
 ## Get all organizations and bottom levels [/api/Organization/ExpandAll]
-This method available only after sign in. 
 
 ### ExpandAll [GET]
 
@@ -351,13 +350,12 @@ Show organizations with specific  type
 Country Managing
 
 ## Create Country [/api/Country/Create/?{name}&{countryCode}&{orgId}]
-This method available only after sign in. 
     + Parameters
         +name (string) - country name, have to be unique
         +countryCode (int) - country Code, have to be unique
         +orgId (int) - organization id that wil containt country you want to add
 
-### Create organization [POST]
+### Create country [POST]
 
 + Response 200 (application/json)
 
@@ -384,7 +382,6 @@ This method available only after sign in.
         ]
 
 ## Get all organizations and bottom levels [/api/Country/ExpandAll/?{orgId}]
-This method available only after sign in. 
     + Parameters
         +orgId (int) - expand all bottom levels containt in current organization
 ### ExpandAll [GET]
@@ -442,13 +439,11 @@ This method available only after sign in.
                 "business": []
               }
             ]
-        
-## Get all organizations [/api/Country/Get/?{orgId}]
-    This method available only after sign in. 
-    Show all counttry iside organization 
+
+## Get all Country without bottom levels [/api/Country/Get/?{orgId}]
     + Parameters
         +orgId (int) -  target organization Id
-### ExpandAll [GET]
+### Get country [GET]
 + Response 200 (application/json)
 
         [
@@ -476,7 +471,6 @@ This method available only after sign in.
         ]
         
 ## Update country [/api/Country/Put/?{id}&{orgId}&{id}&{name}&{code}]
-    You can paste here name or code or both of them
     + Parameters
         + id (int) - country id,
         + orgId (int) -  organization id
@@ -521,6 +515,479 @@ This method available only after sign in.
 
         [
           "There is no country with name France and organizationId 1"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+        
+BUsiness Managing
+
+## Create Business [/api/Business/Create/?{name}&{countryId}]
+    + Parameters
+        +name (string) - country name, have to be unique
+        +countryId (int) - place here country Id inside which you want to add business 
+
+### Create business [POST]
+
++ Response 200 (application/json)
+
+        {
+            "200"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "Business with name:Franceksdjbfs already exist inside country with id:3"
+        }
+
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+## Get all business and bottom levels [/api/Business/ExpandAll/?{businessd}]
+    + Parameters
+        +businessId (int) - expand all bottom levels containt in current organization
+### ExpandAll [GET]
+
++ Response 200 (application/json)
+
+        
+           [
+              {
+                "businessId": 1,
+                "businessName": "Small",
+                "countryId": 3,
+                "family": [
+                  {
+                    "familyId": 1,
+                    "familyName": "Volk",
+                    "businessId": 1,
+                    "offering": [
+                      {
+                        "offeringId": 1,
+                        "offeringName": "DICH",
+                        "familyId": 1,
+                        "department": [
+                          {
+                            "departmentId": 1,
+                            "departmentName": "Dep1",
+                            "offeringId": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "businessId": 2,
+                "businessName": "Franceksdjbfs",
+                "countryId": 3,
+                "family": []
+              }
+            ]
+        
+## Get all Business without bottom levels [/api/Business/Get/?{businessId}]
+    + Parameters
+        +businessId (int) -  target organization Id
+### Get country [GET]
++ Response 200 (application/json)
+
+        [
+          {
+            "businessId": 1,
+            "businessName": "Small",
+            "countryId": 3,
+            "family": null
+          },
+          {
+            "businessId": 2,
+            "businessName": "Franceksdjbfs",
+            "countryId": 3,
+            "family": null
+          }
+        ]
+
+## Update Business [/api/Business/Put/?{businessId}&{id}&{name}]
+    + Parameters
+        + countryId  - target country Id
+        + id  - target business
+        + name - new name
+### Update country INFO [PUT]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+
++ Response 200 (application/json)
+
+        [
+          "Business with name:noss already exist inside country with id:3"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]        
+## Delete country [/api/Business/Delete/?{name}&{countryId}]
+    + Parameters
+        + name (string)- the name of business
+        + countryId (string) - countryId id
+### Delete country INFO [Delete]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          -"There is no business with name {name} and countryId {countryId}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+        
+Family Managing
+
+## Create family [/api/Business/Create/?{name}&{businessId}]
+This method available only after sign in. 
+    + Parameters
+        +name (string) - country name, have to be unique
+        +businessId (int) - expand all bottom levels containt in current organization
+
+### Create business [POST]
+
++ Response 200 (application/json)
+
+        {
+            "200"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "Family with name:kjahdfb already exist inside business with id:1"
+        }
+
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+## Get all business and bottom levels [/api/Family/ExpandAll/?{businessd}]
+    + Parameters
+        +businessId (int) - expand all bottom levels containt in current organization
+### ExpandAll [GET]
+
++ Response 200 (application/json)
+
+        
+           [
+              {
+                "familyId": 1,
+                "familyName": "Volk",
+                "businessId": 1,
+                "offering": [
+                  {
+                    "offeringId": 1,
+                    "offeringName": "DICH",
+                    "familyId": 1,
+                    "department": [
+                      {
+                        "departmentId": 1,
+                        "departmentName": "Dep1",
+                        "offeringId": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "familyId": 2,
+                "familyName": "kjahdfb",
+                "businessId": 1,
+                "offering": []
+              }
+            ]
+        
+## Get all Family without bottom levels [/api/Family/Get/?{businessId}]
+    + Parameters
+        +businessId (int) -  target business Id
+### Get country [GET]
++ Response 200 (application/json)
+
+        [
+          {
+            "familyId": 1,
+            "familyName": "Volk",
+            "businessId": 1,
+            "offering": null
+          },
+          {
+            "familyId": 2,
+            "familyName": "kjahdfb",
+            "businessId": 1,
+            "offering": null
+          }
+        ]
+
+## Update Business [/api/Family/Put/?{businessId}&{id}&{name}]
+    You can paste here name or code or both of them
+    + Parameters
+        + businessId  - target family Id
+        + id  - target business
+        + name - new name
+### Update country INFO [PUT]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+
++ Response 200 (application/json)
+
+        [
+          "Family with name:{name} already exist inside business with id:{id}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]        
+## Delete country [/api/Family/Delete/?{name}&{businessId}]
+    + Parameters
+        + name (string)- the name of business
+        + businessId (string) - countryId id
+### Delete country INFO [Delete]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          -"There is no family with name {name} and businessId {id}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+Offering Managing
+
+## Create Offering [/api/Offering/Create/?{name}&{familyId}]
+This method available only after sign in. 
+    + Parameters
+        +name (string) - Offering name, have to be unique
+        +familyId (int) - expand all bottom levels containt in current family
+
+### Create business [POST]
+
++ Response 200 (application/json)
+
+        {
+            "200"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "Offering with name:{name} already exist inside business with id:{id}"
+        }
+
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+## Get all business and bottom levels [/api/Offering/ExpandAll/?{familyd}]
+    + Parameters
+        +familyId (int) - expand all bottom levels containt in current family
+### ExpandAll [GET]
+
++ Response 200 (application/json)
+
+        
+           [
+              {
+                "offeringId": 1,
+                "offeringName": "DICH",
+                "familyId": 1,
+                "department": [
+                  {
+                    "departmentId": 1,
+                    "departmentName": "Dep1",
+                    "offeringId": 1
+                  }
+                ]
+              }
+            ]
+        
+## Get all Offering without bottom levels [/api/Offering/Get/?{familyId}]
+    Show all offering iside famnily 
+    + Parameters
+        +familyId (int) -  target family Id
+### Get country [GET]
++ Response 200 (application/json)
+
+        [
+          {
+            "offeringId": 1,
+            "offeringName": "DICH",
+            "familyId": 1,
+            "department": null
+          }
+        ]
+
+## Update Business [/api/Offering/Put/?{family}&{id}&{name}]
+This method available only after sign in
+    + Parameters
+        + familyID  - target family Id
+        + id  - target offering
+        + name - new name
+### Update country INFO [PUT]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+
++ Response 200 (application/json)
+
+        [
+          "Offering with name:{name} already exist inside business with id:{id}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]        
+## Delete country [/api/Offering/Delete/?{name}&{offeringId}]
+    + Parameters
+        + name (string)- the name of business
+        + offeringId (string) - offering id
+### Delete country INFO [Delete]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          -"There is no offering with name {name} and businessId {id}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+Department Managing
+
+## Create Department [/api/Department/Create/?{name}&{offeringId}]
+This method available only after sign in. 
+    + Parameters
+        +name (string) - depart. name
+        +offering (int) - 
+
+### Create business [POST]
+
++ Response 200 (application/json)
+
+        {
+            "200"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "Department with name:{name} already exist inside offering with id:{id}"
+        }
+
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]
+
+## Get Department [/api/Department/Get/?{OfferingId}]
+    Show all offering iside famnily 
+    + Parameters
+        +Offering (int) -  target family Id
+### Get country [GET]
++ Response 200 (application/json)
+
+        [
+          {
+            "departmentId": 1,
+            "departmentName": "Dep1",
+            "offeringId": 1
+          }
+        ]
+
+## Update Business [/api/Department/Put/?{familyId}&{id}&{name}]
+This method available only after sign in
+    + Parameters
+        + familyID  - target offering Id
+        + id  - target department
+        + name - new name
+### Update Department INFO [PUT]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+
++ Response 200 (application/json)
+
+        [
+          "Department with name:{name} already exist inside offering with id:{id}"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          "Error. Please Authenticate via social network"
+        ]        
+## Delete country [/api/Department/Delete/?{name}&{familyId}]
+    + Parameters
+        + name (string)- the name of business
+        + familyId (string) - countryId id
+### Delete country INFO [Delete]
++ Response 200 (application/json)
+
+        [
+          "200"
+        ]
+        
++ Response 200 (application/json)
+
+        [
+          -"There is no department with name {name} and offering {id}"
         ]
         
 + Response 200 (application/json)
