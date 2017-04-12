@@ -120,7 +120,7 @@ Methods available:
 ### ORGANIZATION (application/json)
 Methods available:
 ____________
-+ CREATE 
++ _CREATE_ 
 	+ Description: Create organization
 	+ Type: [POST]
 	+ Address: [~/api/Organization/Create/?{name}&{code{&{type}] 
@@ -133,7 +133,7 @@ ____________
 		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 ________________
-+ EXPANDALL 
++ _EXPANDALL_ 
 	+ Description: Give you all bottom levels that containt target Organization
 	+ Type: [GET]
 	+ Address: [~/api/Organization/ExpandAll/?{id}] 
