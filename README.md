@@ -42,6 +42,23 @@ According to Entities and Structure of classes we can formed validation rules
 So you want use our API. Offcourse you may make mistakes, and in this case you will get on of Error in Error list below
 ## Error list
 + Name error
-	+ NameErro1  {This name is already exist inside }
+	+ NameErro1  {This name is already exist}
 	+ NameError2 {Name is expty}
 	+ NameError3 {There is no [concrete entity] with name [concrete name]}
++ Code error (only for Organization and country)
+	+ CodeError1 {This code is already exist}
+	+ CodeError2 {Code is null or empty}
+	+ CodeError4 {Code contain non numerical sequence}
++ Type error (only for Organization)
+	+ TypeError1 {Type is empty}
+	+ TypeError2 {There is no organization with type [concrete type]}
++ Id error
+	+ IdError1 {Id is empty}
+	+ IdError2 {Id have to be possitive}
+	+ IdError3 {Id is 0}
+	+ IdError4 {There is no [concrete entity] with id [conctete id]}
+	+ IdError5 {Id contain non numerical sequence}
++ Null error
+	+ NullParam {All entering parameters are empty}
++ Authentication (This error appear when you try to use POST, DELETE or PUT method before you authenticate via LinkedIn. All get methods are available without authentication.)
+	+ Please authorize via LinkedIn
