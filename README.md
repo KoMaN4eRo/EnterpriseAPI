@@ -30,11 +30,18 @@ EnterpriseAPI application
 
 ## Validation
 According to Entities and Structure of classes we can formed validation rules
-+ Entity organization [Name and Code have to be unique inisde Organization table in other way you will get Exception]
-+ Entity country [Name and Code have to be unique inisde concrete organization in other way you will get Exception]
-+ Entity business [Name have to be unique inisde concrete country in other way you will get Exception]
-+ Entity family [Name have to be unique inisde concrete business in other way you will get Exception]
-+ Entity offering [Name have to be unique inisde concrete family in other way you will get Exception]
-+ Entity department [Name have to be unique inisde concrete department in other way you will get Exception]
++ Entity organization: [Name and Code have to be unique inisde Organization table in other way you will get Exception]
++ Entity country: [Name and Code have to be unique inisde concrete organization in other way you will get Exception]
++ Entity business: [Name have to be unique inisde concrete country in other way you will get Exception]
++ Entity family: [Name have to be unique inisde concrete business in other way you will get Exception]
++ Entity offering: [Name have to be unique inisde concrete family in other way you will get Exception]
++ Entity department: [Name have to be unique inisde concrete department in other way you will get Exception]
 
 
+# USING OF API
+So you want use our API. Offcourse you may make mistakes, and in this case you will get on of Error in Error list below
+## Error list
++ Name error
+ ++ NameErro1  {This name is already exist inside }
+ ++ NameError2 {Name is expty}
+ ++ NameError3 {There is no [concrete entity] with name [concrete name]}
