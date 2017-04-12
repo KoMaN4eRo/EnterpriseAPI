@@ -103,13 +103,11 @@ Methods available:
 	+ Response:  
 		+ Status code: 200
 		+ Message: 
-		{
-	          "userId": 1,
-		  "name": "Pavel",
-		  "lastName": "Levchenko",
-		  "email": "dromedar@ukr.net",
-		  "address": null
-		}
-	+ Error: 
-		+ Status code: 200
-		+ Message: "There is no value"
+			{
+			  "userId": 1,
+			  "name": "Pavel",
+			  "lastName": "Levchenko",
+			  "email": "dromedar@ukr.net",
+			  "address": null
+			}
+	
