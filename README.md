@@ -103,6 +103,7 @@ Methods available:
 	+ Response:  
 		+ Status code: 200
 		+ Message: 
+		
 			{
 			  "userId": 1,
 			  "name": "Pavel",
@@ -111,3 +112,8 @@ Methods available:
 			  "address": null
 			}
 	
+	+ Response 200 (application/json)
+
+        {
+            "200"
+        }
