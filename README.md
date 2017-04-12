@@ -484,7 +484,7 @@ __________
 		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 ___________
-+ PUT 
++ DELETE 
 	+ Description: Delete concrete organization with all bottom levels
 	+ Type: [DELETE]
 	+ Address: [~/api/Organization/Delete/?{id}&{name}&{code{&{type}] 
