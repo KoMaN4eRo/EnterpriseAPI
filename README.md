@@ -42,6 +42,6 @@ According to Entities and Structure of classes we can formed validation rules
 So you want use our API. Offcourse you may make mistakes, and in this case you will get on of Error in Error list below
 ## Error list
 + Name error
- 1. NameErro1  {This name is already exist inside }
- 2. NameError2 {Name is expty}
- 3. NameError3 {There is no [concrete entity] with name [concrete name]}
+	1. NameErro1  {This name is already exist inside }
+	2. NameError2 {Name is expty}
+	3. NameError3 {There is no [concrete entity] with name [concrete name]}
