@@ -65,14 +65,15 @@ So you want use our API. Certainly, you may make mistakes, and in this case you 
 ## API
 ### ACCOUNT 
 Methods available:
-+ Login 
++ LOGIN 
+	+ Description: Use this method, if you want to authenticate via LinkedIn. WARNING: Only after authentication you can use POST, PUT and DELETE methods
 	+ Type: [GET]
 	+ Address: [~/api/Account/Login] 
 	+ Response:  
 		+ Status code: 200
 		+ Message: "Login complete"
-	+ Error: If you already login? and you try to use this method again, you will get 
+	+ Error: If you already login and you try to use this method again, you will get 
 		+ Status code: 404
-+ Logout
++ LOGOUT
 	
 	
