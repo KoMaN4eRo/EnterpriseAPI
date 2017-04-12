@@ -139,8 +139,8 @@ Methods available:
 		+ id - Organization's id
 	+ Response:  
 		+ Status code: 200
-		+ Message: 
-		#
+		+ Message: request: http://localhost:3128/api/Organization/ExpandAll/?id=2 
+		# This is result
 				{
 				  "organizationId": 2,
 				  "organizationName": "OON",
@@ -300,4 +300,170 @@ Methods available:
 				  ]
 				}
 	+ Error: Description of all error, that you can receive in response containt in Error list above	
-	
+
+___________
++ GET 
+	+ Description: Get all Organizations without bottom level
+	+ Type: [GET]
+	+ Address: [~/api/Organization/Get] 
+	+ Response:  
+		+ Status code: 200
+		+ Message:  
+		# 
+			[
+			  {
+			    "organizationId": 2,
+			    "organizationName": "OON",
+			    "organizationCode": 266,
+			    "organizationType": "International",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 3,
+			    "organizationName": "OON1",
+			    "organizationCode": 65,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 4,
+			    "organizationName": "OON21",
+			    "organizationCode": 56,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 5,
+			    "organizationName": "OON2",
+			    "organizationCode": 96,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 6,
+			    "organizationName": "Pavel",
+			    "organizationCode": 666,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 1006,
+			    "organizationName": "OO6N2",
+			    "organizationCode": 766,
+			    "organizationType": "hchjcf",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  }
+			]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+______
++ GerByType 
+	+ Description: Get organization by the type
+	+ Type: [GET]
+	+ Address: [~/api/Organization/GetByType/?{type}] 
+	+ Parameters
+		+ type - Organization's type
+	+ Response:  
+		+ Status code: 200
+		+ Message: 
+		#
+			[
+			  {
+			    "organizationId": 3,
+			    "organizationName": "OON1",
+			    "organizationCode": 65,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 4,
+			    "organizationName": "OON21",
+			    "organizationCode": 56,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 5,
+			    "organizationName": "OON2",
+			    "organizationCode": 96,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  },
+			  {
+			    "organizationId": 6,
+			    "organizationName": "Pavel",
+			    "organizationCode": 666,
+			    "organizationType": "Internationalw",
+			    "owner": "Pavel Levchenko",
+			    "country": null
+			  }
+			]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+_____
++ GetCurrentOwnerOrganization 
+	+ Description: Get current user organizations
+	+ Type: [POST]
+	+ Address: [~/api/Organization/GetCurrentOwnerOrganization] 
+	+ Response:  
+		+ Status code: 200
+		+ Message:
+		# 
+				[
+				  {
+				    "organizationId": 2,
+				    "organizationName": "OON",
+				    "organizationCode": 266,
+				    "organizationType": "International",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  },
+				  {
+				    "organizationId": 3,
+				    "organizationName": "OON1",
+				    "organizationCode": 65,
+				    "organizationType": "Internationalw",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  },
+				  {
+				    "organizationId": 4,
+				    "organizationName": "OON21",
+				    "organizationCode": 56,
+				    "organizationType": "Internationalw",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  },
+				  {
+				    "organizationId": 5,
+				    "organizationName": "OON2",
+				    "organizationCode": 96,
+				    "organizationType": "Internationalw",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  },
+				  {
+				    "organizationId": 6,
+				    "organizationName": "Pavel",
+				    "organizationCode": 666,
+				    "organizationType": "Internationalw",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  },
+				  {
+				    "organizationId": 1006,
+				    "organizationName": "OO6N2",
+				    "organizationCode": 766,
+				    "organizationType": "hchjcf",
+				    "owner": "Pavel Levchenko",
+				    "country": null
+				  }
+				]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
