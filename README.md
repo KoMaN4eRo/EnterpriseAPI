@@ -9,8 +9,7 @@ EnterpriseAPI application
 
 
 # Structure of Organization
-## Entities 
-Organization have  a hierarchical tree structure and it is give ypu abbility to organizeassets in your enterprise. So, You will have following entities inside the system:
+## Entities Organization have  a hierarchical tree structure and it is give ypu abbility to organizeassets in your enterprise. So, You will have following entities inside the system:
     1. User (Name, Surname, Email, Address)
     2. Country (Name, Code)
     3. Organization (Name, Code, Organization Type (General Partnership,
@@ -25,13 +24,17 @@ Organization have  a hierarchical tree structure and it is give ypu abbility to 
  + Organization (contain list of "Country")
  + Country (contain list of "Business")
  + Business (contain list of "Family")
- + [Family] (contain list of "Offering")
+ + Family (contain list of "Offering")
  + Offering (contain list of "Department")
  + Departme
 
 ## Validation
 According to Entities and Structure of classes we can formed validation rules
-+ Organization {Name and Code have to be unique inisde Organization table in other way you will get Exception}
-+ Organization {Name and Code have to be unique inisde Organization table in other way you will get Exception}
++ Entity organization [Name and Code have to be unique inisde Organization table in other way you will get Exception]
++ Entity country [Name and Code have to be unique inisde concrete organization in other way you will get Exception]
++ Entity business [Name have to be unique inisde concrete country in other way you will get Exception]
++ Entity family [Name have to be unique inisde concrete business in other way you will get Exception]
++ Entity offering [Name have to be unique inisde concrete family in other way you will get Exception]
++ Entity department [Name have to be unique inisde concrete department in other way you will get Exception]
 
 
