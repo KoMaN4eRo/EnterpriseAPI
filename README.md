@@ -71,5 +71,8 @@ Methods available:
 	+ Response:  
 		+ Status code: 200
 		+ Message: "Login complete"
+	+ Error: If you already login? and you try to use this method again, you will get 
+		+ Status code: 404
++ Logout
 	
 	
