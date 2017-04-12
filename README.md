@@ -412,7 +412,7 @@ ______
 _____
 + **_GetCurrentOwnerOrganization_** 
 	+ Description: Get current user organizations
-	+ Type: [POST]
+	+ Type: [GET]
 	+ Address: [~/api/Organization/GetCurrentOwnerOrganization] 
 	+ Response:  
 		+ Status code: 200
