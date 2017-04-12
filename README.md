@@ -63,10 +63,13 @@ So you want use our API. Certainly, you may make mistakes, and in this case you 
 + AUTHENTICATION (This error appear when you try to use POST, DELETE or PUT method before you authenticate via LinkedIn. All get methods are available without authentication.)
 	+ Please authorize via LinkedIn
 ## API
-### Account
+### ACCOUNT 
 Methods available:
 + Login 
-	[GET]
-	[~/api/Account/Login] 
+	+ Type: [GET]
+	+ Address: [~/api/Account/Login] 
+	+ Response:  
+		+ Status code: 200
+		+ Message: "Login complete"
 	
 	
