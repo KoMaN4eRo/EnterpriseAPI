@@ -98,8 +98,6 @@ Methods available:
 	+ Description: Use this method, if you want get iformation about your account
 	+ Type: [GET]
 	+ Address: [~/api/Account/Get] 
-	+ Parameters
-		+ address (string) - your real address
 	+ Response:  
 		+ Status code: 200
 		+ Message: 
@@ -111,9 +109,194 @@ Methods available:
 			  "email": "dromedar@ukr.net",
 			  "address": null
 			}
-	
-	+ Response 200 (application/json)
++ Delete 	
+	+ Description: Use this method, if you want to delete your account
+	+ Type: [Delete]
+	+ Address: [~/api/Account/Delete] 
+	+ Response:  
+		+ Status code: 200
+		+ Message: "Logout complete"
 
+### ORGANIZATION (application/json)
+Methods available:
++ CREATE 
+	+ Description: Create organization
+	+ Type: [POST]
+	+ Address: [~/api/Organization/Create/?{name}&{code{&{type}] 
+	+ Parameters
+		+ name - Organization's name
+		+ code - Organization's code
+		+ type - Organization's type
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
++ EXPANDALL 
+	+ Description: Give you all bottom levels that containt target Organization
+	+ Type: [GET]
+	+ Address: [~/api/Organization/ExpandAll/?{id}] 
+	+ Parameters
+		+ id - Organization's id
+	+ Response:  
+		+ Status code: 200
+		+ Message: 
+		{
+  "organizationId": 2,
+  "organizationName": "OON",
+  "organizationCode": 266,
+  "organizationType": "International",
+  "owner": "Pavel Levchenko",
+  "country": [
+    {
+      "countryId": 1,
+      "countryName": "USA",
+      "countryCode": 38,
+      "organizationId": 2,
+      "business": [
         {
-            "200"
+          "businessId": 1,
+          "businessName": "Cop",
+          "countryId": 1,
+          "family": [
+            {
+              "familyId": 1,
+              "familyName": "My",
+              "businessId": 1,
+              "offering": [
+                {
+                  "offeringId": 1,
+                  "offeringName": "New",
+                  "familyId": 1,
+                  "department": [
+                    {
+                      "departmentId": 1,
+                      "departmentName": "Ider",
+                      "offeringId": 1
+                    },
+                    {
+                      "departmentId": 2,
+                      "departmentName": "Dep2",
+                      "offeringId": 1
+                    },
+                    {
+                      "departmentId": 5,
+                      "departmentName": "Dep3",
+                      "offeringId": 1
+                    },
+                    {
+                      "departmentId": 6,
+                      "departmentName": "Dep4",
+                      "offeringId": 1
+                    },
+                    {
+                      "departmentId": 7,
+                      "departmentName": "Dep5",
+                      "offeringId": 1
+                    },
+                    {
+                      "departmentId": 8,
+                      "departmentName": "Dep6",
+                      "offeringId": 1
+                    }
+                  ]
+                },
+                {
+                  "offeringId": 2,
+                  "offeringName": "New1",
+                  "familyId": 1,
+                  "department": []
+                },
+                {
+                  "offeringId": 3,
+                  "offeringName": "New2",
+                  "familyId": 1,
+                  "department": []
+                },
+                {
+                  "offeringId": 4,
+                  "offeringName": "New3",
+                  "familyId": 1,
+                  "department": []
+                },
+                {
+                  "offeringId": 5,
+                  "offeringName": "New4",
+                  "familyId": 1,
+                  "department": []
+                },
+                {
+                  "offeringId": 6,
+                  "offeringName": "New5",
+                  "familyId": 1,
+                  "department": []
+                },
+                {
+                  "offeringId": 7,
+                  "offeringName": "Data",
+                  "familyId": 1,
+                  "department": []
+                }
+              ]
+            },
+            {
+              "familyId": 2,
+              "familyName": "Name2",
+              "businessId": 1,
+              "offering": []
+            },
+            {
+              "familyId": 3,
+              "familyName": "Name3",
+              "businessId": 1,
+              "offering": []
+            },
+            {
+              "familyId": 4,
+              "familyName": "Name4",
+              "businessId": 1,
+              "offering": []
+            },
+            {
+              "familyId": 5,
+              "familyName": "Name5",
+              "businessId": 1,
+              "offering": []
+            }
+          ]
+        },
+        {
+          "businessId": 2,
+          "businessName": "Antoher1",
+          "countryId": 1,
+          "family": []
+        },
+        {
+          "businessId": 3,
+          "businessName": "Antoher2",
+          "countryId": 1,
+          "family": []
+        },
+        {
+          "businessId": 4,
+          "businessName": "Antoher3",
+          "countryId": 1,
+          "family": []
+        },
+        {
+          "businessId": 5,
+          "businessName": "Antoher4",
+          "countryId": 1,
+          "family": []
+        },
+        {
+          "businessId": 6,
+          "businessName": "Antoher5",
+          "countryId": 1,
+          "family": []
         }
+      ]
+    }
+  ]
+}
+	+ Error: Description of all error, that you can receive in response containt in Error list above	
+	
