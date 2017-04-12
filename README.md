@@ -105,7 +105,7 @@ Methods available:
 			  "userId": 1,
 			  "name": "Pavel",
 			  "lastName": "Levchenko",
-			  "email": "dromedar@ukr.net",
+			  "email": "------@ukr.net",
 			  "address": null
 			}
 + Delete 	
