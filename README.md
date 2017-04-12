@@ -21,9 +21,9 @@ EnterpriseAPI application
     7. Department (name)
     
 ## This is structure of classes
-Organization (contain list of "Country")
-Country (contain list of "Business")
-Business (contain list of "Family")
-[Family] (contain list of "Offering")
-Offering (contain list of "Department")
-Department  
+1. + Organization (contain list of "Country")
+2. + Country (contain list of "Business")
+3. + Business (contain list of "Family")
+4. + [Family] (contain list of "Offering")
+5. + Offering (contain list of "Department")
+6. + Department  
