@@ -1,6 +1,6 @@
 FORMAT: 1A
 HOST: http://localhost:3128/
 
-+EnterpriseAPI application
++ EnterpriseAPI application
 
-++How to open: use Visual studio 2015 
+ ++ How to open: use Visual studio 2015 
