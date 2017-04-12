@@ -9,7 +9,7 @@ EnterpriseAPI application
 
 
 # STRUCTURE OF ORGANIZATION
-## Entities Organization have  a hierarchical tree structure and it is give ypu abbility to organizeassets in your enterprise. So, You will have following entities inside the system:
+## Entities Organization have  a hierarchical tree structure and it is give you abbility to organize assets in your enterprise. So, You will have following entities inside the system:
     1. User (Name, Surname, Email, Address)
     2. Country (Name, Code)
     3. Organization (Name, Code, Organization Type (General Partnership,
@@ -39,7 +39,7 @@ According to Entities and Structure of classes we can formed validation rules
 
 
 # USING OF API
-So you want use our API. Offcourse you may make mistakes, and in this case you will get on of Error in Error list below
+So you want use our API. Certainly, you may make mistakes, and in this case you will get one of Error in list below
 ## Error list
 + NAME ERROR
 	+ NameErro1  {This name is already exist}
