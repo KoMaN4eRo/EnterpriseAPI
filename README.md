@@ -8,7 +8,7 @@ EnterpriseAPI application
 + USE: This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for them to embrace on another organizations. Each user have to login via LinkedIn by means of using methods inside AccountController.
 
 
-# STRUCTURE OF ORGANIZATION
+# STRUCTURE OF PROJECT
 ## Entities Organization have  a hierarchical tree structure and it is give you abbility to organize assets in your enterprise. So, You will have following entities inside the system:
     1. User (Name, Surname, Email, Address)
     2. Country (Name, Code)
@@ -62,3 +62,11 @@ So you want use our API. Certainly, you may make mistakes, and in this case you 
 	+ NullParam {All entering parameters are empty}
 + AUTHENTICATION (This error appear when you try to use POST, DELETE or PUT method before you authenticate via LinkedIn. All get methods are available without authentication.)
 	+ Please authorize via LinkedIn
+## API
+### Account
+Methods available:
++ Login 
+	[GET]
+	[~/api/Account/Login] 
+	
+	
