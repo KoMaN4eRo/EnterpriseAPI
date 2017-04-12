@@ -2,13 +2,13 @@ FORMAT: 1A
 
 EnterpriseAPI application
 
-# Main information
+# MAIN INFORMATION
 + HOST: http://localhost:3128/
 + OPEN: "Visual studio 2015" to open this project
-+ USE: This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for him to embrace on another organizations. Each user have login via LinkedIn by means of using methods inside AccountController.
++ USE: This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for them to embrace on another organizations. Each user have to login via LinkedIn by means of using methods inside AccountController.
 
 
-# Structure of Organization
+# STRUCTURE OF ORGANIZATION
 ## Entities Organization have  a hierarchical tree structure and it is give ypu abbility to organizeassets in your enterprise. So, You will have following entities inside the system:
     1. User (Name, Surname, Email, Address)
     2. Country (Name, Code)
@@ -41,24 +41,24 @@ According to Entities and Structure of classes we can formed validation rules
 # USING OF API
 So you want use our API. Offcourse you may make mistakes, and in this case you will get on of Error in Error list below
 ## Error list
-+ Name error
++ NAME ERROR
 	+ NameErro1  {This name is already exist}
 	+ NameError2 {Name is expty}
 	+ NameError3 {There is no [concrete entity] with name [concrete name]}
-+ Code error (only for Organization and country)
++ CODE ERROR (only for Organization and country)
 	+ CodeError1 {This code is already exist}
 	+ CodeError2 {Code is null or empty}
 	+ CodeError4 {Code contain non numerical sequence}
-+ Type error (only for Organization)
++ TYPE ERROR (only for Organization)
 	+ TypeError1 {Type is empty}
 	+ TypeError2 {There is no organization with type [concrete type]}
-+ Id error
++ ID ERROR
 	+ IdError1 {Id is empty}
 	+ IdError2 {Id have to be possitive}
 	+ IdError3 {Id is 0}
 	+ IdError4 {There is no [concrete entity] with id [conctete id]}
 	+ IdError5 {Id contain non numerical sequence}
-+ Null error
++ NULL ERROR
 	+ NullParam {All entering parameters are empty}
-+ Authentication (This error appear when you try to use POST, DELETE or PUT method before you authenticate via LinkedIn. All get methods are available without authentication.)
++ AUTHENTICATION (This error appear when you try to use POST, DELETE or PUT method before you authenticate via LinkedIn. All get methods are available without authentication.)
 	+ Please authorize via LinkedIn
