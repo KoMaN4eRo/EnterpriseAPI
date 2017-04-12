@@ -43,5 +43,5 @@ So you want use our API. Offcourse you may make mistakes, and in this case you w
 ## Error list
 + Name error
  ++ NameErro1  {This name is already exist inside }
- ++ NameError2 {Name is expty}
- ++ NameError3 {There is no [concrete entity] with name [concrete name]}
+++ NameError2 {Name is expty}
+++ NameError3 {There is no [concrete entity] with name [concrete name]}
