@@ -119,6 +119,7 @@ Methods available:
 
 ### ORGANIZATION (application/json)
 Methods available:
+____________
 + CREATE 
 	+ Description: Create organization
 	+ Type: [POST]
@@ -131,6 +132,7 @@ Methods available:
 		+ Status code: 200
 		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
+________________
 + EXPANDALL 
 	+ Description: Give you all bottom levels that containt target Organization
 	+ Type: [GET]
@@ -466,4 +468,32 @@ _____
 				    "country": null
 				  }
 				]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+__________
++ PUT 
+	+ Description: Udate information about concrete organization
+	+ Type: [PUT]
+	+ Address: [~/api/Organization/Put/?{id}&{name}&{code{&{type}] 
+	+ Parameters 
+		+ id - Organization's id
+		+ name - Organization's name. This parameter that you can update, but it is optional
+		+ code - Organization's code. This parameter that you can update, but it is optional
+		+ type - Organization's type. This parameter that you can update, but it is optional
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+___________
++ PUT 
+	+ Description: Delete concrete organization with all bottom levels
+	+ Type: [DELETE]
+	+ Address: [~/api/Organization/Delete/?{id}&{name}&{code{&{type}] 
+	+ Parameters 
+		+ id - Organization's id
+		+ name - Organization's name. This parameter that you can update, but it is optional
+		+ code - Organization's code. This parameter that you can update, but it is optional
+		+ type - Organization's type. This parameter that you can update, but it is optional
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
