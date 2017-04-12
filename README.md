@@ -120,7 +120,7 @@ Methods available:
 ### ORGANIZATION (application/json)
 Methods available:
 ____________
-+ _CREATE_ 
++ **_CREATE_** 
 	+ Description: Create organization
 	+ Type: [POST]
 	+ Address: [~/api/Organization/Create/?{name}&{code{&{type}] 
@@ -133,7 +133,7 @@ ____________
 		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 ________________
-+ _EXPANDALL_ 
++ **_EXPANDALL_** 
 	+ Description: Give you all bottom levels that containt target Organization
 	+ Type: [GET]
 	+ Address: [~/api/Organization/ExpandAll/?{id}] 
@@ -304,7 +304,7 @@ ________________
 	+ Error: Description of all error, that you can receive in response containt in Error list above	
 
 ___________
-+ GET 
++ **_GET_** 
 	+ Description: Get all Organizations without bottom level
 	+ Type: [GET]
 	+ Address: [~/api/Organization/Get] 
@@ -364,7 +364,7 @@ ___________
 			]
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 ______
-+ GerByType 
++ **_GerByType_** 
 	+ Description: Get organization by the type
 	+ Type: [GET]
 	+ Address: [~/api/Organization/GetByType/?{type}] 
@@ -410,7 +410,7 @@ ______
 			]
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 _____
-+ GetCurrentOwnerOrganization 
++ **_GetCurrentOwnerOrganization_** 
 	+ Description: Get current user organizations
 	+ Type: [POST]
 	+ Address: [~/api/Organization/GetCurrentOwnerOrganization] 
@@ -470,7 +470,7 @@ _____
 				]
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 __________
-+ PUT 
++ **_PUT_** 
 	+ Description: Udate information about concrete organization
 	+ Type: [PUT]
 	+ Address: [~/api/Organization/Put/?{id}&{name}&{code{&{type}] 
@@ -484,7 +484,7 @@ __________
 		+ Message: {}
 	+ Error: Description of all error, that you can receive in response containt in Error list above
 ___________
-+ DELETE 
++ **_DELETE_**
 	+ Description: Delete concrete organization with all bottom levels
 	+ Type: [DELETE]
 	+ Address: [~/api/Organization/Delete/?{id}&{name}&{code{&{type}] 
