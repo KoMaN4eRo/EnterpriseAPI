@@ -1,12 +1,12 @@
 FORMAT: 1A
 
-EnterpriseAPI application
+**_EnterpriseAPI application_**
 
 # MAIN INFORMATION
-+ HOST: http://localhost:3128/
-+ OPEN: "Visual studio 2015" to open this project
-+ USE: This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for them to embrace on another organizations. Each user have to login via LinkedIn by means of using methods inside AccountController.
-+ TEST: For testing API you can use Postman Interceptor. For testing API turn on interceptor in browser. https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
++ **HOST:** http://localhost:3128/
++ **OPEN:** "Visual studio 2015" to open this project
++ **USE:** This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for them to embrace on another organizations. Each user have to login via LinkedIn by means of using methods inside AccountController.
++ **TEST:** For testing API you can use Postman Interceptor. For testing API turn on interceptor in browser. https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
 
 
 # STRUCTURE OF PROJECT
@@ -22,21 +22,21 @@ EnterpriseAPI application
     7. Department (name)
     
 ## This is structure of classes
- + Organization (contain list of "Country")
- + Country (contain list of "Business")
- + Business (contain list of "Family")
- + Family (contain list of "Offering")
- + Offering (contain list of "Department")
- + Departme
+ + **Organization** (contain list of "Country")
+ + **Country** (contain list of "Business")
+ + **Business** (contain list of "Family")
+ + **Family** (contain list of "Offering")
+ + **Offering** (contain list of "Department")
+ + **Departme**
 
 ## Validation
 According to Entities and Structure of classes we can formed validation rules
-+ Entity organization: [Name and Code have to be unique inisde Organization table in other way you will get Exception]
-+ Entity country: [Name and Code have to be unique inisde concrete organization in other way you will get Exception]
-+ Entity business: [Name have to be unique inisde concrete country in other way you will get Exception]
-+ Entity family: [Name have to be unique inisde concrete business in other way you will get Exception]
-+ Entity offering: [Name have to be unique inisde concrete family in other way you will get Exception]
-+ Entity department: [Name have to be unique inisde concrete department in other way you will get Exception]
++ **Entity organization:** [Name and Code have to be unique inisde Organization table in other way you will get Exception]
++ **Entity country:** [Name and Code have to be unique inisde concrete organization in other way you will get Exception]
++ **Entity business:** [Name have to be unique inisde concrete country in other way you will get Exception]
++ **Entity family:** [Name have to be unique inisde concrete business in other way you will get Exception]
++ **Entity offering:** [Name have to be unique inisde concrete family in other way you will get Exception]
++ **Entity department:** [Name have to be unique inisde concrete department in other way you will get Exception]
 
 
 # USING OF API
@@ -487,12 +487,482 @@ ___________
 + **_DELETE_**
 	+ Description: Delete concrete organization with all bottom levels
 	+ Type: [DELETE]
-	+ Address: [~/api/Organization/Delete/?{id}&{name}&{code{&{type}] 
+	+ Address: [~/api/Organization/Delete/?{name}] 
 	+ Parameters 
-		+ id - Organization's id
 		+ name - Organization's name. This parameter that you can update, but it is optional
-		+ code - Organization's code. This parameter that you can update, but it is optional
-		+ type - Organization's type. This parameter that you can update, but it is optional
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+
+### COUNTRY (application/json)
+Methods available:
+____________
++ **_CREATE_** 
+	+ Description: Create country
+	+ Type: [POST]
+	+ Address: [~/api/Country/Create/?{name}&{code{&{orgId}] 
+	+ Parameters
+		+ name - Country's name
+		+ code - Country's code
+		+ orgId - Organization's id. Put here id of organization in which you want add new Country
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+________________
++ **_EXPANDALL_** 
+	+ Description: Give you all bottom levels that containt target Orgnization
+	+ Type: [GET]
+	+ Address: [~/api/Country/ExpandAll/?{orgId}] 
+	+ Parameters
+		+ orgId - Organization's id 
+	+ Response:  
+		+ Status code: 200
+		+ Message: request: http://localhost:3128/api/Country/ExpandAll/?orgId=2 
+		# This is result
+				[
+				  {
+				    "countryId": 1,
+				    "countryName": "USA",
+				    "countryCode": 38,
+				    "organizationId": 2,
+				    "business": [
+				      {
+					"businessId": 1,
+					"businessName": "Cop",
+					"countryId": 1,
+					"family": [
+					  {
+					    "familyId": 1,
+					    "familyName": "My",
+					    "businessId": 1,
+					    "offering": [
+					      {
+						"offeringId": 1,
+						"offeringName": "New",
+						"familyId": 1,
+						"department": [
+						  {
+						    "departmentId": 1,
+						    "departmentName": "Ider",
+						    "offeringId": 1
+						  },
+						  {
+						    "departmentId": 2,
+						    "departmentName": "Dep2",
+						    "offeringId": 1
+						  },
+						  {
+						    "departmentId": 5,
+						    "departmentName": "Dep3",
+						    "offeringId": 1
+						  },
+						  {
+						    "departmentId": 6,
+						    "departmentName": "Dep4",
+						    "offeringId": 1
+						  },
+						  {
+						    "departmentId": 7,
+						    "departmentName": "Dep5",
+						    "offeringId": 1
+						  },
+						  {
+						    "departmentId": 8,
+						    "departmentName": "Dep6",
+						    "offeringId": 1
+						  }
+						]
+					      },
+					      {
+						"offeringId": 2,
+						"offeringName": "New1",
+						"familyId": 1,
+						"department": []
+					      },
+					      {
+						"offeringId": 3,
+						"offeringName": "New2",
+						"familyId": 1,
+						"department": []
+					      },
+					      {
+						"offeringId": 4,
+						"offeringName": "New3",
+						"familyId": 1,
+						"department": []
+					      },
+					      {
+						"offeringId": 5,
+						"offeringName": "New4",
+						"familyId": 1,
+						"department": []
+					      },
+					      {
+						"offeringId": 6,
+						"offeringName": "New5",
+						"familyId": 1,
+						"department": []
+					      },
+					      {
+						"offeringId": 7,
+						"offeringName": "Data",
+						"familyId": 1,
+						"department": []
+					      }
+					    ]
+					  },
+					  {
+					    "familyId": 2,
+					    "familyName": "Name2",
+					    "businessId": 1,
+					    "offering": []
+					  },
+					  {
+					    "familyId": 3,
+					    "familyName": "Name3",
+					    "businessId": 1,
+					    "offering": []
+					  },
+					  {
+					    "familyId": 4,
+					    "familyName": "Name4",
+					    "businessId": 1,
+					    "offering": []
+					  },
+					  {
+					    "familyId": 5,
+					    "familyName": "Name5",
+					    "businessId": 1,
+					    "offering": []
+					  }
+					]
+				      },
+				      {
+					"businessId": 2,
+					"businessName": "Antoher1",
+					"countryId": 1,
+					"family": []
+				      },
+				      {
+					"businessId": 3,
+					"businessName": "Antoher2",
+					"countryId": 1,
+					"family": []
+				      },
+				      {
+					"businessId": 4,
+					"businessName": "Antoher3",
+					"countryId": 1,
+					"family": []
+				      },
+				      {
+					"businessId": 5,
+					"businessName": "Antoher4",
+					"countryId": 1,
+					"family": []
+				      },
+				      {
+					"businessId": 6,
+					"businessName": "Antoher5",
+					"countryId": 1,
+					"family": []
+				      }
+				    ]
+				  }
+				]
+	+ Error: Description of all error, that you can receive in response containt in Error list above	
+___________
++ **_GET_** 
+	+ Description: Get all Organizations without bottom level
+	+ Type: [GET]
+	+ Address: [~/api/Country/Get/?{orgId}] 
+	+ Parameters
+		+ orgId - Organization's id 
+	+ Response:  
+		+ Status code: 200
+		+ Message:  
+		# 
+			[
+			  {
+			    "countryId": 1,
+			    "countryName": "USA",
+			    "countryCode": 38,
+			    "organizationId": 2,
+			    "business": null
+			  }
+			]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+______
+
++ **_PUT_** 
+	+ Description: Udate information about concrete country
+	+ Type: [PUT]
+	+ Address: [~/api/Country/Put/?{orgId}&{id}&{name}&{code}] 
+	+ Parameters 
+		+ orgId - Organization's id 
+		+ id - Country's id
+		+ name - Country's name. This parameter that you can update, but it is optional
+		+ code - Country's code. This parameter that you can update, but it is optional
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+___________
++ **_DELETE_**
+	+ Description: Delete concrete country with all bottom levels
+	+ Type: [DELETE]
+	+ Address: [~/api/Country/Delete/?{name&{orgId}] 
+	+ Parameters 
+		+ orgId - Organization's id
+		+ name - Country's name. This parameter that you can update, but it is optional
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+
+### BUSINESS (application/json)
+Methods available:
+____________
++ **_CREATE_** 
+	+ Description: Create business
+	+ Type: [POST]
+	+ Address: [~/api/Business/Create/?{name}&{countryId}] 
+	+ Parameters
+		+ name - Business's name
+		+ countryId - Country's id. Put here id of country in which you want add new Business
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+________________
++ **_EXPANDALL_** 
+	+ Description: Give you all bottom levels that containt target Orgnization
+	+ Type: [GET]
+	+ Address: [~/api/Business/ExpandAll/?{countryId}] 
+	+ Parameters
+		+ countryId - Country's id 
+	+ Response:  
+		+ Status code: 200
+		+ Message: request: http://localhost:3128/api/Business/ExpandAll/?countryId=1 
+		# This is result
+				[
+				  {
+				    "businessId": 1,
+				    "businessName": "Cop",
+				    "countryId": 1,
+				    "family": [
+				      {
+					"familyId": 1,
+					"familyName": "My",
+					"businessId": 1,
+					"offering": [
+					  {
+					    "offeringId": 1,
+					    "offeringName": "New",
+					    "familyId": 1,
+					    "department": [
+					      {
+						"departmentId": 1,
+						"departmentName": "Ider",
+						"offeringId": 1
+					      },
+					      {
+						"departmentId": 2,
+						"departmentName": "Dep2",
+						"offeringId": 1
+					      },
+					      {
+						"departmentId": 5,
+						"departmentName": "Dep3",
+						"offeringId": 1
+					      },
+					      {
+						"departmentId": 6,
+						"departmentName": "Dep4",
+						"offeringId": 1
+					      },
+					      {
+						"departmentId": 7,
+						"departmentName": "Dep5",
+						"offeringId": 1
+					      },
+					      {
+						"departmentId": 8,
+						"departmentName": "Dep6",
+						"offeringId": 1
+					      }
+					    ]
+					  },
+					  {
+					    "offeringId": 2,
+					    "offeringName": "New1",
+					    "familyId": 1,
+					    "department": []
+					  },
+					  {
+					    "offeringId": 3,
+					    "offeringName": "New2",
+					    "familyId": 1,
+					    "department": []
+					  },
+					  {
+					    "offeringId": 4,
+					    "offeringName": "New3",
+					    "familyId": 1,
+					    "department": []
+					  },
+					  {
+					    "offeringId": 5,
+					    "offeringName": "New4",
+					    "familyId": 1,
+					    "department": []
+					  },
+					  {
+					    "offeringId": 6,
+					    "offeringName": "New5",
+					    "familyId": 1,
+					    "department": []
+					  },
+					  {
+					    "offeringId": 7,
+					    "offeringName": "Data",
+					    "familyId": 1,
+					    "department": []
+					  }
+					]
+				      },
+				      {
+					"familyId": 2,
+					"familyName": "Name2",
+					"businessId": 1,
+					"offering": []
+				      },
+				      {
+					"familyId": 3,
+					"familyName": "Name3",
+					"businessId": 1,
+					"offering": []
+				      },
+				      {
+					"familyId": 4,
+					"familyName": "Name4",
+					"businessId": 1,
+					"offering": []
+				      },
+				      {
+					"familyId": 5,
+					"familyName": "Name5",
+					"businessId": 1,
+					"offering": []
+				      }
+				    ]
+				  },
+				  {
+				    "businessId": 2,
+				    "businessName": "Antoher1",
+				    "countryId": 1,
+				    "family": []
+				  },
+				  {
+				    "businessId": 3,
+				    "businessName": "Antoher2",
+				    "countryId": 1,
+				    "family": []
+				  },
+				  {
+				    "businessId": 4,
+				    "businessName": "Antoher3",
+				    "countryId": 1,
+				    "family": []
+				  },
+				  {
+				    "businessId": 5,
+				    "businessName": "Antoher4",
+				    "countryId": 1,
+				    "family": []
+				  },
+				  {
+				    "businessId": 6,
+				    "businessName": "Antoher5",
+				    "countryId": 1,
+				    "family": []
+				  }
+				]
+	+ Error: Description of all error, that you can receive in response containt in Error list above	
+___________
++ **_GET_** 
+	+ Description: Get all Organizations without bottom level
+	+ Type: [GET]
+	+ Address: [~/api/Business/Get/?{countryId}] 
+	+ Parameters
+		+ countryId - Country's id 
+	+ Response:  
+		+ Status code: 200
+		+ Message:  
+		# 
+			[
+			  {
+			    "businessId": 1,
+			    "businessName": "Cop",
+			    "countryId": 1,
+			    "family": null
+			  },
+			  {
+			    "businessId": 2,
+			    "businessName": "Antoher1",
+			    "countryId": 1,
+			    "family": null
+			  },
+			  {
+			    "businessId": 3,
+			    "businessName": "Antoher2",
+			    "countryId": 1,
+			    "family": null
+			  },
+			  {
+			    "businessId": 4,
+			    "businessName": "Antoher3",
+			    "countryId": 1,
+			    "family": null
+			  },
+			  {
+			    "businessId": 5,
+			    "businessName": "Antoher4",
+			    "countryId": 1,
+			    "family": null
+			  },
+			  {
+			    "businessId": 6,
+			    "businessName": "Antoher5",
+			    "countryId": 1,
+			    "family": null
+			  }
+			]
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+______
+
++ **_PUT_** 
+	+ Description: Udate information about concrete country
+	+ Type: [PUT]
+	+ Address: [~/api/Business/Put/?{countryId}&{id}&{name}] 
+	+ Parameters 
+		+ orgId - Country's id 
+		+ id - Business's id
+		+ name - Business's name. This parameter that you can update.
+	+ Response:  
+		+ Status code: 200
+		+ Message: {}
+	+ Error: Description of all error, that you can receive in response containt in Error list above
+___________
++ **_DELETE_**
+	+ Description: Delete concrete country with all bottom levels
+	+ Type: [DELETE]
+	+ Address: [~/api/Country/Delete/?{name&{orgId}] 
+	+ Parameters 
+		+ orgId - Organization's id
+		+ name - Country's name. This parameter that you can update, but it is optional
 	+ Response:  
 		+ Status code: 200
 		+ Message: {}
