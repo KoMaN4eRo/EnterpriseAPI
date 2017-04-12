@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 using EnterpriseAPI.Models.UserModel;
 using Microsoft.Net.Http.Headers;
 using System.Net;
-
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace EnterpriseAPI.Controllers
@@ -19,7 +19,6 @@ namespace EnterpriseAPI.Controllers
     [Route("api/[controller]/[action]")]
     public class AccountController : Controller
     {
-
         private IUser user;
         private ApplicationContext db;
         private string mess;
@@ -35,34 +34,64 @@ namespace EnterpriseAPI.Controllers
             db = context;
         }
 
-        public async Task<JsonResult> Login()
+        public IActionResult Login()
+        {
+            return Challenge(new AuthenticationProperties() { RedirectUri = "/api/Account/CompleteLogin" }, "LinkedIn");
+        }
+
+        public async Task<JsonResult> CompleteLogin()
         {
             string name = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
             string lastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
             string emailAddress = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
             await user.Create(eventHandler, db, name, lastName, emailAddress);
-            return Json(mess);
+            return Json("Login complete");
         }
-
-        public JsonResult Logout()
+        public IActionResult Logout()
         {
-            return Json("You has been logout successfuly");
+            return SignOut(new AuthenticationProperties { RedirectUri = "/api/Account/Result" },
+                CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
+        [HttpGet]
+        public JsonResult Info()
+        {
+            return Json("Please authenticate via LinkedIn");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult Result()
+        {
+            return Json("Logout complete");
+        }
+
+        [Authorize]
         [HttpPut]
         public async Task<JsonResult> Put(string address)
         {
-            //HttpContext.Session.SetString("Name", "Mike");
-            //var value = HttpContext.Session.GetString("Name");
-            //CookieHeaderValue cookie = Request.Headers.GetCookies("person").FirstOrDefault();
+            if (address == null)
+            {
+                return Json("There is no value");
+            }
             string emailAddress = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
             var c = await user.Get(db, emailAddress);
             await user.Update(eventHandler, db, c.userId, address);
             return Json(mess);
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<JsonResult> Get()
+        {
+            string emailAddress = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
+            var c = await user.Get(db, emailAddress);
+            return Json(c);
+        }
+
+        [Authorize]
         [HttpDelete]
-        public async Task<JsonResult> Delete(string name)
+        public async Task<JsonResult> Delete()
         {
             string emailAddress = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
             var c = await user.Get(db, emailAddress);

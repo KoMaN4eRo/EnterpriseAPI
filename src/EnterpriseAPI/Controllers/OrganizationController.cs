@@ -1,100 +1,81 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using EnterpriseAPI.Models;
 using EnterpriseAPI.Models.OrganizationModel;
-using EnterpriseAPI.Models.CountryModel;
-using EnterpriseAPI.Models.BusinessModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 
+using System.Net;
+using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Web.Http;
+using System.Security.Claims;
+
 namespace EnterpriseAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
-    public class OrganizationController : Controller
+    public class OrganizationController :Controller
     {
-        private IOrganization organization;
-        private ApplicationContext db;
-        private string mess;
-
-        private void eventHandler(object sender, OrganizationArgs e)
+        private IOrganizationService organizationService; 
+        public OrganizationController(IOrganizationService _orgService )
         {
-            mess = e.message;
-        }
-
-        public OrganizationController(ApplicationContext context, IOrganization organization)
-        {
-            this.organization = organization;
-            db = context;
+            organizationService = _orgService;
         }
 
         [HttpPost]
-        public async Task<JsonResult> Create(string name, string orgCode, string type)
+        public async Task<JsonResult> Create(string name, string code, string type)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
-                string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
-                await organization.Create(eventHandler, db, name, int.Parse(orgCode), type, userName + userLastName);
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
+            string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+            if (code == null) code = "0";
+            var t = await organizationService.CreateOrganization(name, code, type, $"{userName} {userLastName}");
+            return Json(t);
         }
        
+        [AllowAnonymous]
         [HttpGet]
-        public async Task<JsonResult> ExpandAll()
+        public async Task<JsonResult> ExpandAll(string id)
         {
-            var c = await organization.ExpandAll(db);
-            return Json(c);
+            return Json(await organizationService.ExpandAll(id));
         }
-        
+
+        [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> Get()
         {
-            var c = await organization.Get(db);
-            return Json(c);
+            return Json(await organizationService.Get());
         }
-        
+
+        [AllowAnonymous]
         [HttpGet]
-        public async Task<JsonResult> GetByType(string organizationType)
+        public async Task<JsonResult> GetCurrentOwnerOrganization()
         {
-                var c = await organization.GetByType(db, organizationType);
-                return Json(c);
+            string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
+            string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+            string owner = $"{userName} {userLastName}";
+            return Json(await organizationService.GetCurrentOwnerOrganization(owner));
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<JsonResult> GetByType(string type)
+        {
+            return Json(await organizationService.GetByType(type));
         }
 
         [HttpPut]
-        public async Task<JsonResult> Put(string id, string name = null, string orgCode = null, string type = null)
+        public async Task<JsonResult> Put(string id, string name = null, string code = null, string type = null)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await organization.Update(eventHandler, db, int.Parse(id), name, int.Parse(orgCode), type);
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await organizationService.UpdateOrganization(id, name, code, type)); 
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await organization.Delete(eventHandler, db, name);
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await organizationService.DeleteOrganizaiotn(name));
         }
     }
 }

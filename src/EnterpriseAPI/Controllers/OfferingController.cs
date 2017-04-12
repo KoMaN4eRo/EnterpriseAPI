@@ -1,89 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EnterpriseAPI.Models.OfferingModel;
-using EnterpriseAPI.Models;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.AspNetCore.Authorization;
 
 namespace EnterpriseAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
     public class OfferingController : Controller
     {
-
-        private IOffering offering;
-        private ApplicationContext db;
-        private string mess;
-
-        private void eventHandler(object sender, OfferingArgs e)
+        private IOfferingService offeringService;
+        public OfferingController(IOfferingService _offeringService)
         {
-            mess = e.message;
-        }
-
-        public OfferingController(ApplicationContext context, IOffering offering)
-        {
-            this.offering = offering;
-            db = context;
+            offeringService = _offeringService;
         }
 
         [HttpPost]
-        public async Task<JsonResult> Create(string name, string familyId)
+        public async Task<JsonResult> Create(string name = null, string familyId = null)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await offering.Create(eventHandler, db, name, int.Parse(familyId));
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await offeringService.CreateOffering(name, familyId));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> ExpandAll(string familyId)
         {
-            return Json(await offering.ExpandAll(db, int.Parse(familyId)));
+            return Json(await offeringService.ExpandAll(familyId));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> Get(string familyId)
         {
-            return Json(await offering.Get(db, int.Parse(familyId)));
+            return Json(await offeringService.Get(familyId));
         }
 
         [HttpPut]
         public async Task<JsonResult> Put(string familyId, string id, string name = null)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await offering.Update(eventHandler, db, int.Parse(familyId), int.Parse(id), name);
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await offeringService.UpdateOffering(familyId, id, name));
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name, string familyId)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await offering.Delete(eventHandler, db, name, int.Parse(familyId));
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await offeringService.DeleteOffering(name, familyId));
         }
     }
 }

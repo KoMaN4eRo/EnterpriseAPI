@@ -1,90 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EnterpriseAPI.Models.FamilyModel;
-using EnterpriseAPI.Models;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.AspNetCore.Authorization;
 
 namespace EnterpriseAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
     public class FamilyController : Controller
     {
-
-        private IFamily family;
-        private ApplicationContext db;
-        private string mess;
-
-        private void eventHandler(object sender, FamilyArgs e)
+        private IFamilyService familyService;
+        public FamilyController(IFamilyService _familyService)
         {
-            mess = e.message;
-        }
-
-        public FamilyController(ApplicationContext context, IFamily family)
-        {
-            this.family = family;
-            db = context;
+            familyService = _familyService;
         }
 
         [HttpPost]
         public async Task<JsonResult> Create(string name, string businessId)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-
-                await family.Create(eventHandler, db, name, int.Parse(businessId));
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+            return Json(await familyService.CreateFamily(name, businessId));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> ExpandAll(string businessId)
         {
-            return Json(await family.ExpandAll(db,int.Parse(businessId)));
+            return Json(await familyService.ExpandAll(businessId));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> Get(string businessId)
         {
-            return Json(await family.Get(db, int.Parse(businessId)));
+            return Json(await familyService.Get(businessId));
         }
 
         [HttpPut]
         public async Task<JsonResult> Put(string businessId, string id, string name = null)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await family.Update(eventHandler, db, int.Parse(businessId), int.Parse(id), name);
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+              return Json(await familyService.UpdateFamily(businessId, id, name));
         }
 
         [HttpDelete]
         public async Task<JsonResult> Delete(string name, string businessId)
         {
-            string controlll = User.Identity.Name;
-            if (controlll != null)
-            {
-                await family.Delete(eventHandler, db, name, int.Parse(businessId));
-                return Json(mess);
-            }
-            else
-            {
-                return Json("Error. Please Authenticate via social network");
-            }
+               return Json(await familyService.DeleteFamily(name, businessId));
         }
     }
 }

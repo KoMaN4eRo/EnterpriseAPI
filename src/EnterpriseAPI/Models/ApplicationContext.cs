@@ -31,13 +31,5 @@ namespace EnterpriseAPI.Models
         {
 
         }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EnterpriseAPIdb;Trusted_Connection=True;");
-        //}
-        //public ApplicationContext(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    this.optionsBuilder = optionsBuilder;
-        //}
     }
 }

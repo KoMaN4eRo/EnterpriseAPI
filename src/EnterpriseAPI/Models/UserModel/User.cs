@@ -90,7 +90,7 @@ namespace EnterpriseAPI.Models.UserModel
             {
                 db.user.Remove(user);
                 await db.SaveChangesAsync();
-                OnDeleted(new UserArgs(@"User with id:{id} has been successfully deleted"));
+                OnDeleted(new UserArgs($"User with id:{id} has been successfully deleted"));
             }
 
             else
