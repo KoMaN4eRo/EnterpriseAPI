@@ -7,7 +7,7 @@ FORMAT: 1A
 + **OPEN:** "Visual studio 2015" to open this project
 + **USE:** This application give you ability to create and structured your Organizations. Each user has his own organizations and there is no way for them to embrace on another organizations. Each user have to login via LinkedIn by means of using methods inside AccountController.
 + **TEST:** For testing API you can use Postman Interceptor. For testing API turn on interceptor in browser. https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
-
++ **Uncompleted tasks:** There are no unit tests 
 
 # STRUCTURE OF PROJECT
 ## Entities Organization have  a hierarchical tree structure and it is give you abbility to organize assets in your enterprise. So, You will have following entities inside the system:
@@ -105,7 +105,7 @@ Methods available:
 			  "userId": 1,
 			  "name": "Pavel",
 			  "lastName": "Levchenko",
-			  "email": "dromedar@ukr.net",
+			  "email": "------@ukr.net",
 			  "address": null
 			}
 + Delete 	
