@@ -17,24 +17,38 @@ namespace EnterpriseAPI.Controllers
 {
     [Authorize]
     [Route("api/[controller]/[action]")]
-    public class OrganizationController :Controller
+    public class OrganizationController : Controller
     {
-        private IOrganizationService organizationService; 
-        public OrganizationController(IOrganizationService _orgService )
+        private IOrganizationService organizationService;
+        public OrganizationController(IOrganizationService _orgService)
         {
             organizationService = _orgService;
         }
 
+        //[HttpPost]
+        //public async Task<JsonResult> Create(string name, string code, string type)
+        //{
+        //    string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
+        //    string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
+        //    if (code == null) code = "0";
+        //    var t = await organizationService.CreateOrganization(name, code, type, $"{userName} {userLastName}");
+        //    return Json(t);
+        //}
+
         [HttpPost]
-        public async Task<JsonResult> Create(string name, string code, string type)
+        public async Task<IActionResult> Create([FromBody] Organization org)
         {
+            if (org == null || !ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
             string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
-            if (code == null) code = "0";
-            var t = await organizationService.CreateOrganization(name, code, type, $"{userName} {userLastName}");
-            return Json(t);
+            var t = await organizationService.CreateOrganization(org.organizationName, org.organizationCode.ToString("D"), org.organizationType, $"{userName} {userLastName}");
+            return Ok(t);
         }
-       
+
         [AllowAnonymous]
         [HttpGet]
         public async Task<JsonResult> ExpandAll(string id)

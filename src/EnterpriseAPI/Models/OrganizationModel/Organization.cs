@@ -3,6 +3,8 @@ using EnterpriseAPI.Models.CountryModel;
 using EnterpriseAPI.Models.DepartmentModel;
 using EnterpriseAPI.Models.FamilyModel;
 using EnterpriseAPI.Models.OfferingModel;
+using EnterpriseAPI.Validation.ValidateOrganization;
+using EnterpriseAPI.Validation.ValidationAttributes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,12 +18,18 @@ namespace EnterpriseAPI.Models.OrganizationModel
     {
         [Key]
         public int organizationId { get; set; }
-        [Required (ErrorMessage = ("OrganizationName isn't indicated"))]
+
+        [IsNullOrEmpty (ErrorMessage = "Organization name isn't indicated")]
         public string organizationName { get; set; }
-        [Required (ErrorMessage = ("OrganizationCode isn't indicated"))]
+
+        [IsNullOrEmpty(ErrorMessage = "Organization code is 0")]
+        [MinusCode(ErrorMessage = "Organization code is less then 0")]
+        [IsUniqueCode(ErrorMessage = "OrganizationCode is already exist")]
         public int organizationCode { get; set; }
-        [Required(ErrorMessage = ("OrganizationType isn't indicated"))]
+
+        [IsNullOrEmpty(ErrorMessage = "Organization type isn't indicated")]
         public string organizationType { get; set; }
+
         public string Owner { get; set; }
         public List<Country> country { get; set; }
 

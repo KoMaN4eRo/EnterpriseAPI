@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EnterpriseAPI", "src\EnterpriseAPI\EnterpriseAPI.xproj", "{DA556FC3-0860-4188-AE26-44BCFCD1909C}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EnterpriseAPI.Tests", "EnterpriseAPI.Tests\EnterpriseAPI.Tests.xproj", "{0D4158AF-1311-42DD-88D7-EEA930850C5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +24,16 @@ Global
 		{DA556FC3-0860-4188-AE26-44BCFCD1909C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA556FC3-0860-4188-AE26-44BCFCD1909C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA556FC3-0860-4188-AE26-44BCFCD1909C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4158AF-1311-42DD-88D7-EEA930850C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4158AF-1311-42DD-88D7-EEA930850C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4158AF-1311-42DD-88D7-EEA930850C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4158AF-1311-42DD-88D7-EEA930850C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DA556FC3-0860-4188-AE26-44BCFCD1909C} = {A5E14653-C2A8-4617-A7FE-A449CAB94F2D}
+		{0D4158AF-1311-42DD-88D7-EEA930850C5D} = {A5E14653-C2A8-4617-A7FE-A449CAB94F2D}
 	EndGlobalSection
 EndGlobal

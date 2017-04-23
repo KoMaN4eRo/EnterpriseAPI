@@ -1,5 +1,5 @@
---temp-output:C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\obj\Debug\netcoreapp1.0\
---out:C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\bin\Debug\netcoreapp1.0\EnterpriseAPI.dll
+--temp-output:C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\EnterpriseAPI.Tests\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\EnterpriseAPI.Tests\bin\Debug\netcoreapp1.0\EnterpriseAPI.Tests.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -7,13 +7,13 @@
 --suppress-warning:CS1702
 --suppress-warning:CS1705
 --optimize:False
---emit-entry-point:True
---output-name:EnterpriseAPI
+--output-name:EnterpriseAPI.Tests
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
 --target-framework:.NETCoreApp,Version=v1.0
 --reference:C:\Users\Павел\.nuget\packages\AspNet.Security.OAuth.LinkedIn\1.0.0-beta3-final\lib\netstandard1.3\AspNet.Security.OAuth.LinkedIn.dll
+--reference:C:\Users\Павел\.nuget\packages\Castle.Core\4.0.0\lib\netstandard1.3\Castle.Core.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.AspNet.WebApi.Client\5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll
@@ -106,10 +106,17 @@
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\portable-net45+win8\System.Net.Http.Extensions.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\portable-net45+win8\System.Net.Http.Primitives.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.Net.Http.Headers\1.1.1\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.ObjectModel\15.0.0\lib\netstandard1.5\Microsoft.TestPlatform.CoreUtilities.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.ObjectModel\15.0.0\lib\netstandard1.5\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.TestHost\15.0.0-preview-20170222-09\lib\netstandard1.5\Microsoft.TestPlatform.CommunicationUtilities.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.TestHost\15.0.0-preview-20170222-09\lib\netstandard1.5\Microsoft.TestPlatform.CrossPlatEngine.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.TestHost\15.0.0-preview-20170222-09\lib\netstandard1.5\Microsoft.VisualStudio.TestPlatform.Common.dll
+--reference:C:\Users\Павел\.nuget\packages\Microsoft.TestPlatform.TestHost\15.0.0-preview-20170222-09\lib\netstandard1.5\testhost.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.VisualBasic\10.0.1\ref\netstandard1.1\Microsoft.VisualBasic.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.Win32.Primitives\4.3.0\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\Павел\.nuget\packages\Microsoft.Win32.Registry\4.3.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
 --reference:C:\Users\Павел\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
+--reference:C:\Users\Павел\.nuget\packages\NSubstitute\2.0.2\lib\netstandard1.5\NSubstitute.dll
 --reference:C:\Users\Павел\.nuget\packages\NuGet.Common\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Common.dll
 --reference:C:\Users\Павел\.nuget\packages\NuGet.Configuration\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Configuration.dll
 --reference:C:\Users\Павел\.nuget\packages\NuGet.DependencyResolver.Core\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.DependencyResolver.Core.dll
@@ -135,8 +142,10 @@
 --reference:C:\Users\Павел\.nuget\packages\System.Collections.Concurrent\4.3.0\ref\netstandard1.3\System.Collections.Concurrent.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Collections.Immutable\1.2.0\lib\netstandard1.0\System.Collections.Immutable.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Collections.NonGeneric\4.3.0\ref\netstandard1.3\System.Collections.NonGeneric.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Collections.Specialized\4.3.0\ref\netstandard1.3\System.Collections.Specialized.dll
 --reference:C:\Users\Павел\.nuget\packages\System.ComponentModel\4.3.0\ref\netstandard1.0\System.ComponentModel.dll
 --reference:C:\Users\Павел\.nuget\packages\System.ComponentModel.Annotations\4.1.0\ref\netstandard1.4\System.ComponentModel.Annotations.dll
+--reference:C:\Users\Павел\.nuget\packages\System.ComponentModel.EventBasedAsync\4.0.11\ref\netstandard1.3\System.ComponentModel.EventBasedAsync.dll
 --reference:C:\Users\Павел\.nuget\packages\System.ComponentModel.Primitives\4.3.0\ref\netstandard1.0\System.ComponentModel.Primitives.dll
 --reference:C:\Users\Павел\.nuget\packages\System.ComponentModel.TypeConverter\4.3.0\ref\netstandard1.5\System.ComponentModel.TypeConverter.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Console\4.3.0\ref\netstandard1.3\System.Console.dll
@@ -147,7 +156,9 @@
 --reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.DiagnosticSource\4.3.0\lib\netstandard1.3\System.Diagnostics.DiagnosticSource.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.Process\4.1.0\ref\netstandard1.4\System.Diagnostics.Process.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.StackTrace\4.0.1\ref\netstandard1.3\System.Diagnostics.StackTrace.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.TextWriterTraceListener\4.0.0\ref\netstandard1.3\System.Diagnostics.TextWriterTraceListener.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.Tools\4.3.0\ref\netstandard1.0\System.Diagnostics.Tools.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.TraceSource\4.0.0\ref\netstandard1.3\System.Diagnostics.TraceSource.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Diagnostics.Tracing\4.3.0\ref\netstandard1.5\System.Diagnostics.Tracing.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Dynamic.Runtime\4.3.0\ref\netstandard1.3\System.Dynamic.Runtime.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Globalization\4.3.0\ref\netstandard1.3\System.Globalization.dll
@@ -195,6 +206,7 @@
 --reference:C:\Users\Павел\.nuget\packages\System.Runtime.InteropServices.RuntimeInformation\4.3.0\ref\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Runtime.Loader\4.0.0\ref\netstandard1.5\System.Runtime.Loader.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Runtime.Numerics\4.3.0\ref\netstandard1.1\System.Runtime.Numerics.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Runtime.Serialization.Json\4.0.2\ref\netstandard1.0\System.Runtime.Serialization.Json.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Runtime.Serialization.Primitives\4.3.0\ref\netstandard1.3\System.Runtime.Serialization.Primitives.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Runtime.Serialization.Xml\4.3.0\ref\netstandard1.3\System.Runtime.Serialization.Xml.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Security.Claims\4.3.0\ref\netstandard1.3\System.Security.Claims.dll
@@ -218,52 +230,14 @@
 --reference:C:\Users\Павел\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Xml.XmlDocument\4.3.0\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --reference:C:\Users\Павел\.nuget\packages\System.Xml.XmlSerializer\4.3.0\ref\netstandard1.3\System.Xml.XmlSerializer.dll
---resource:"C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\obj\Debug\netcoreapp1.0\EnterpriseAPIdotnet-compile.deps.json",EnterpriseAPI.deps.json
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Program.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Startup.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\AccountController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\BusinessController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\CountryController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\DepartmentController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\FamilyController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\OfferingController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Controllers\OrganizationController.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Migrations\20170411185031_InitialNew.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Migrations\20170411185031_InitialNew.Designer.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Migrations\ApplicationContextModelSnapshot.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\ApplicationContext.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\ApplicationContextFactory.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\BusinessModel\Business.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\BusinessModel\BusinessRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\BusinessModel\BusinessService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\BusinessModel\IBusinessRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\CountryModel\Country.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\CountryModel\CountryRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\CountryModel\CountryService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\CountryModel\ICountryRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\DepartmentModel\Department.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\DepartmentModel\DepartmentRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\DepartmentModel\DepartmentService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\DepartmentModel\IDepartmentRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\FamilyModel\Family.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\FamilyModel\FamilyRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\FamilyModel\FamilyService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\FamilyModel\IFamilyRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OfferingModel\IOfferingRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OfferingModel\Offering.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OfferingModel\OfferingRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OfferingModel\OfferingService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OrganizationModel\IOrganizationRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OrganizationModel\Organization.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OrganizationModel\OrganizationRepository.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\OrganizationModel\OrganizationService.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\UserModel\IUser.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\UserModel\User.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Models\UserModel\UserHandler.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\IValidation.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ModelStateHandler.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ModelValidation.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidateOrganization\IsUniqueCodeAttribute.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidationAttributes\IsNullOrEmptyAttribute.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidationAttributes\MinusCodeAttribute.cs
+--reference:C:\Users\Павел\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
+--reference:C:\Users\Павел\.nuget\packages\System.Xml.XPath.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XPath.XmlDocument.dll
+--reference:C:\Users\Павел\.nuget\packages\xunit.abstractions\2.0.1\lib\netstandard1.0\xunit.abstractions.dll
+--reference:C:\Users\Павел\.nuget\packages\xunit.assert\2.2.0\lib\netstandard1.1\xunit.assert.dll
+--reference:C:\Users\Павел\.nuget\packages\xunit.extensibility.core\2.2.0\lib\netstandard1.1\xunit.core.dll
+--reference:C:\Users\Павел\.nuget\packages\xunit.extensibility.execution\2.2.0\lib\netstandard1.1\xunit.execution.dotnet.dll
+--reference:C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\bin\Debug\netcoreapp1.0\EnterpriseAPI.dll
+C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\EnterpriseAPI.Tests\Controllers\AccountControllerTests.cs
+C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\EnterpriseAPI.Tests\Properties\AssemblyInfo.cs

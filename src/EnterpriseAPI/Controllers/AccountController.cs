@@ -34,6 +34,12 @@ namespace EnterpriseAPI.Controllers
             db = context;
         }
 
+        public IActionResult Index()
+        {
+            ViewData["Message"] = "Hello!";
+            return View("Index");
+        }
+
         public IActionResult Login()
         {
             return Challenge(new AuthenticationProperties() { RedirectUri = "/api/Account/CompleteLogin" }, "LinkedIn");
