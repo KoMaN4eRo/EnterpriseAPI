@@ -24,7 +24,6 @@ namespace EnterpriseAPI.Models.OrganizationModel
 
         [IsNullOrEmpty(ErrorMessage = "Organization code is 0")]
         [MinusCode(ErrorMessage = "Organization code is less then 0")]
-        [IsUniqueCode(ErrorMessage = "OrganizationCode is already exist")]
         public int organizationCode { get; set; }
 
         [IsNullOrEmpty(ErrorMessage = "Organization type isn't indicated")]

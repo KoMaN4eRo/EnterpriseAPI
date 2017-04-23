@@ -264,6 +264,7 @@ C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\Ente
 C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\IValidation.cs
 C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ModelStateHandler.cs
 C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ModelValidation.cs
-C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidateOrganization\IsUniqueCodeAttribute.cs
+C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidateOrganization\IValidateCode.cs
+C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidateOrganization\ValidateCode.cs
 C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidationAttributes\IsNullOrEmptyAttribute.cs
 C:\Users\Павел\Documents\Visual Studio 2015\Projects\EnterpriseAPI\src\EnterpriseAPI\Validation\ValidationAttributes\MinusCodeAttribute.cs

@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Security.Claims;
+using EnterpriseAPI.Validation.ValidateOrganization.Code;
 
 namespace EnterpriseAPI.Controllers
 {
@@ -20,9 +21,11 @@ namespace EnterpriseAPI.Controllers
     public class OrganizationController : Controller
     {
         private IOrganizationService organizationService;
-        public OrganizationController(IOrganizationService _orgService)
+        private IValidateCode validateCode;
+        public OrganizationController(IOrganizationService _orgService, IValidateCode _validate)
         {
             organizationService = _orgService;
+            validateCode = _validate;
         }
 
         //[HttpPost]
@@ -38,14 +41,24 @@ namespace EnterpriseAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Organization org)
         {
+            bool valid = true;
+            if (!(await validateCode.IsValidCode(org.organizationCode)))
+            {
+                ModelState.AddModelError("organizationCode", $"OrganizationCode {org.organizationCode} is already exist");
+                valid = false;
+            }
+
             if (org == null || !ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                valid = false;
             }
+
+            if (!valid) return BadRequest(ModelState);
 
             string userName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").Value;
             string userLastName = User.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname").Value;
             var t = await organizationService.CreateOrganization(org.organizationName, org.organizationCode.ToString("D"), org.organizationType, $"{userName} {userLastName}");
+            
             return Ok(t);
         }
 

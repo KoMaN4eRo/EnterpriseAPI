@@ -26,6 +26,7 @@ using Newtonsoft.Json.Linq;
 using System.Security.Claims;
 using EnterpriseAPI.Models.UserModel;
 using EnterpriseAPI.Validation;
+using EnterpriseAPI.Validation.ValidateOrganization;
 
 namespace EnterpriseAPI
 {
@@ -176,6 +177,7 @@ namespace EnterpriseAPI
             container.Register<IDepartmentRepository, DepartmentRepository>(Lifestyle.Singleton);
             container.Register<IUser, User>(Lifestyle.Singleton);
             container.Register<IValidation, ModelValidation>(Lifestyle.Transient);
+            container.Register<IValidateCode, ValidateCode>(Lifestyle.Transient);
             container.RegisterSingleton(app.ApplicationServices.GetService<ILoggerFactory>());
 
             // Cross-wire ASP.NET services (if any). For instance:
